@@ -37,6 +37,7 @@ html {
   background-color: #1b1919;
   align-items: center;
   display: flex;
+  padding: 0 30px;
 }
 
 h1,
@@ -73,6 +74,7 @@ ol {
   align-items: flex-end;
   gap: 30px;
   margin: 0 auto;
+  width: 100%;
 }
 
 
@@ -125,7 +127,6 @@ ol {
   width: fit-content;
   font-weight: 400;
   font-size: 18px;
-  cursor: pointer;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
@@ -135,7 +136,7 @@ ol {
   outline-offset: 2px;
 }
 
-.search-form__label > .search-form__label-text:hover {
+.search-form__label:hover > .search-form__label-text {
   text-decoration: underline #fff;
   cursor: pointer;
 }
@@ -163,6 +164,7 @@ ol {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
@@ -185,21 +187,36 @@ ol {
 .content__list {
   display: flex;
   flex-direction: column;
-  max-height: 302px;
+  height: 302px;
   overflow-y: auto;
   position: relative;
   gap: 30px;
+}
+
+.content__card-link {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.content__card-link:focus {
+  outline: none;
 }
 
 .content__card-link_current {
   background: rgba(84, 80, 80, 1);
 }
 
-.content__list-item:hover {
+.content__card-link:active {
+  background: rgba(84, 80, 80, 1);
+}
+
+.content__card-link:hover {
   text-decoration: underline 1px;
 }
 
-.content__list-item:focus-visible {
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
   outline-offset: 2px;
   padding: 2px;
 }
@@ -215,15 +232,14 @@ ol {
   height: 103px;
   object-position: 50% 50%;
   object-fit: cover;
-  display: inline-block;
 }
 
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
   width: 200px;
-  gap: 2px;
   padding-left: 1px;
+  gap: 6px;
 }
 
 .title {
@@ -232,7 +248,6 @@ ol {
   font-size: 75px;
   line-height: 70.5px;
   text-transform: uppercase;
-  max-height: 210px;
   max-width: 260px;
 }
 
@@ -240,18 +255,14 @@ ol {
   color: rgba(84, 80, 80, 1)
 }
 
-.content__card-link {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-}
-
 .content__video-card-title {
   text-transform: uppercase;
   font-family: Oswald, sans-serif;
   font-weight: 700;
-  font-size: 26px;
-  line-height: 30px;
+  font-size: 30px;
+  line-height: 29px;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .content__video-card-description {
@@ -259,6 +270,9 @@ ol {
   font-weight: 400;
   font-size: 18px;
   line-height: 16.2px;
+  max-width: 100%;
+  height: 100%;
+  letter-spacing: -0.01em;
 }
 
 .button {
@@ -270,13 +284,15 @@ ol {
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
+  border: 1px solid #fff;
+}
+
+.button:hover {
+  text-decoration: underline;
 }
 
 .search-form__submit-button {
   max-width: 193px;
-}
-
-.search-form__submit-button {
   align-self: flex-end;
 }
 
@@ -293,7 +309,6 @@ ol {
 }
 
 .button:focus-visible,
-.button,
 .content__list-item:focus-visible,
 .search-form__pseudo-checkbox,
 .search-form__label:has(:focus-visible) {
